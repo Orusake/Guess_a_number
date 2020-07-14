@@ -1,21 +1,40 @@
 import random
 
-print("Hello! What's your name?")
+print("Hello! Welcome to my little game Guess my number! :) What's your name?")
 myName = input()
 
 
 def playGame():
     guessesTaken = 0
 
+    print("Well," + myName + ", which difficulty do you want? easy, normal or difficult?")
+
+    while True:
+        difficulty_taken = input()
+
+        if difficulty_taken == "easy":
+            guesses_available = 10
+            print("You chose easy. You will have", guesses_available ,"guesses.")
+            break
+        if difficulty_taken == "normal":
+            guesses_available = 6
+            print("You chose normal. You will have", guesses_available ,"guesses.")
+            break
+        if difficulty_taken == "difficult":
+            guesses_available = 3
+            print("You chose difficult. Poor you! You will only have", guesses_available ,"guesses.")
+            break
+        else:
+            print("Please write easy, normal or difficult correctly.")
+
     def nb_of_guesses(guess):
-        print("Now you have", 6 - guessesTaken , "guesses remaining.")
+        print("Now you have", guesses_available - guessesTaken , "guesses remaining.")
 
-        
     number = random.randint(1, 20)
-    print("Well," + myName + ", I am thinking of a number between 1 and 20.")
+    print("OK," + myName + ", I am thinking of a number between 1 and 20.")
 
-    while guessesTaken < 6:   
-        for guessesTaken in range(6):  #do this 6 times
+    while guessesTaken < guesses_available:   
+        for guessesTaken in range(guesses_available):  #do this 6 times
             print("Take a guess.")
 
             try: 
