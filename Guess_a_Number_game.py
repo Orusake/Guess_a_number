@@ -2,6 +2,9 @@ import random
 
 guessesTaken = 0
 
+def nb_of_guesses(guess):
+    print("Now you have", 5 - guessesTaken , "guesses remanining.")
+
 print("Hello! What's your name?")
 myName = input()
 
@@ -13,12 +16,15 @@ for guessesTaken in range(6):  #do this 6 times
     guess = input()
     guess = int(guess)
     
+    
     if guess < number:
         print("Your guess is too low.")
-        
+    
     if guess > number:
         print("Your guess it too high.")
-        
+    
+    nb_of_guesses(guess)
+    
     if guess == number:
         break
         
@@ -28,4 +34,4 @@ if guess == number:
     
 if guess != number:
     number = str(number)
-    print("Nope. The number I was thinking of was" + number +".")
+    print("How bad, "+ myName + ". The number I was thinking of was " + number +".")
