@@ -3,10 +3,16 @@ import random
 print("Hello! Welcome to my little game Guess my number! :) What's your name?")
 myName = input()
 
+win_score = 0
+loose_score = 0 
 
 def playGame():
     guessesTaken = 0
 
+    global win_score
+    global loose_score
+
+    
     print("Well," + myName + ", which difficulty do you want? easy, normal or difficult?")
 
     while True:
@@ -14,15 +20,15 @@ def playGame():
 
         if difficulty_taken == "easy":
             guesses_available = 10
-            print("You chose easy. You will have", guesses_available ,"guesses.")
+            print("You have chosen easy. You will have", guesses_available ,"guesses.")
             break
         if difficulty_taken == "normal":
             guesses_available = 6
-            print("You chose normal. You will have", guesses_available ,"guesses.")
+            print("You have chosen normal. You will have", guesses_available ,"guesses.")
             break
         if difficulty_taken == "difficult":
             guesses_available = 3
-            print("You chose difficult. Poor you! You will only have", guesses_available ,"guesses.")
+            print("You have chosen difficult. Poor you! You will only have", guesses_available ,"guesses.")
             break
         else:
             print("Please write easy, normal or difficult correctly.")
@@ -33,7 +39,9 @@ def playGame():
     number = random.randint(1, 20)
     print("OK," + myName + ", I am thinking of a number between 1 and 20.")
 
-    while guessesTaken < guesses_available:   
+    while guessesTaken < guesses_available: 
+
+
         for guessesTaken in range(guesses_available):  #do this 6 times
             print("Take a guess.")
 
@@ -64,12 +72,17 @@ def playGame():
         if guess == number:
             guessesTaken = str(guessesTaken)
             print("Bravo, " + myName + "! You guessed my number in " + guessesTaken + " guesses!")
-            break
+            win_score = win_score + 1
+            print("You win " + str(win_score) + " times." "You loose " + str(loose_score) + " times.")
+            break 
 
         else:
         # if guess != number:
             number = str(number)
             print("How bad, "+ myName + ". The number I was thinking of was " + number +".")
+            loose_score += 1            #instead of loose_score = loose_score + 1
+            # loose_score = str(loose_score)
+            print("You win " + str(win_score) + " times." "You loose " + str(loose_score) + " times.")   
 
 playGame()
 
@@ -79,9 +92,10 @@ while True:
         playGame()
         
     elif a=="n":
-        print("No? Well, ok then. Bye, " + myName + "!")
+        print("No? Well, ok then. Bye, " + myName + "!")    
         break
     
     else:
         print("Ummm.... Enter either y/n, you fool!")
+
     
