@@ -3,6 +3,7 @@ import random
 print("Hello! What's your name?")
 myName = input()
 
+
 def playGame():
     guessesTaken = 0
 
@@ -22,8 +23,12 @@ def playGame():
                 guessesTaken = guessesTaken + 1
 
             except ValueError:
-                print("Don't try to fool me, you fool! Try again.")
-                continue
+                if guessesTaken < 5:
+                   print("Don't try to fool me, you fool! Try again.")
+                   continue
+                else:
+                    print("You are so mean to me! :( I don't want to play with you anymore! Bye!") 
+                    quit()
 
             if guess < number:
                 print("Your guess is too low.")
