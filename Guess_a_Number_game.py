@@ -99,3 +99,11 @@ while True:
         print("Ummm.... Enter either y/n, you fool!")
 
     
+
+
+# score = {
+#        'H': {
+#                'wins' : 0,
+#                'losses': 0,
+#                'score': 0
+#                },
