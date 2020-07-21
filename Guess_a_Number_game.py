@@ -1,5 +1,5 @@
 import random
-
+import sys
 
 # Functions
 
@@ -46,25 +46,27 @@ def playGame():
             try: 
                 guess = int(input())
                 guessesTaken = guessesTaken + 1
+                
+                if guess < number:
+                    print("Your guess is too low.")
+    
+                if guess > number:
+                    print("Your guess it too high.")
+    
+                remaining(guess)
+                
+                if guess == number:
+                    break
 
             except ValueError:
-                if guessesTaken < 5:
+                if guessesTaken < guesses_available - 1:
                    print("Don't try to fool me, you fool! Try again.")
                    continue
                 else:
                     print("You are so mean to me! :( I don't want to play with you anymore! Bye!") 
-                    quit()
+                    sys.exit()
 
-            if guess < number:
-                print("Your guess is too low.")
 
-            if guess > number:
-                print("Your guess it too high.")
-
-            remaining(guess)
-            
-            if guess == number:
-                break
 
         if guess == number:
             guessesTaken = str(guessesTaken)
