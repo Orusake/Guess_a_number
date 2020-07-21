@@ -17,19 +17,18 @@ def playGame():
 
         if difficulty_taken == "easy":
             guesses_available = 10
-            print("You have chosen easy. You will have", guesses_available ,"guesses.")
             break
         if difficulty_taken == "normal":
             guesses_available = 6
-            print("You have chosen normal. You will have", guesses_available ,"guesses.")
             break
         if difficulty_taken == "difficult":
             guesses_available = 3
-            print("You have chosen difficult. Poor you! You will only have", guesses_available ,"guesses.")
             break
         else:
             print("Please write easy, normal or difficult correctly.")
-        # return guesses_available
+
+
+    print("You have chosen " + difficulty_taken + ". You will have", guesses_available ,"guesses.")
 
     def remaining(guess):
         print("Now you have", guesses_available - guessesTaken , "guesses remaining.")
