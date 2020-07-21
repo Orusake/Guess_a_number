@@ -1,10 +1,8 @@
 import random
 
-print("Hello! Welcome to my little game Guess my number! :) What's your name?")
-myName = input()
 
-win_score = 0
-loose_score = 0 
+# Functions
+
 
 def playGame():
     guessesTaken = 0
@@ -12,9 +10,8 @@ def playGame():
     global win_score
     global loose_score
 
-    
     print("Well," + myName + ", which difficulty do you want? easy, normal or difficult?")
-
+    
     while True:
         difficulty_taken = input()
 
@@ -32,15 +29,16 @@ def playGame():
             break
         else:
             print("Please write easy, normal or difficult correctly.")
+        # return guesses_available
 
-    def nb_of_guesses(guess):
+    def remaining(guess):
         print("Now you have", guesses_available - guessesTaken , "guesses remaining.")
 
     number = random.randint(1, 20)
     print("OK," + myName + ", I am thinking of a number between 1 and 20.")
 
-    while guessesTaken < guesses_available: 
 
+    while guessesTaken < guesses_available: 
 
         for guessesTaken in range(guesses_available):  #do this 6 times
             print("Take a guess.")
@@ -63,11 +61,10 @@ def playGame():
             if guess > number:
                 print("Your guess it too high.")
 
-            nb_of_guesses(guess)
-
+            remaining(guess)
+            
             if guess == number:
                 break
-
 
         if guess == number:
             guessesTaken = str(guessesTaken)
@@ -84,19 +81,31 @@ def playGame():
             # loose_score = str(loose_score)
             print("You win " + str(win_score) + " times." "You loose " + str(loose_score) + " times.")   
 
+def Ask_continue():
+    while True:
+        a = input("Continue?" "(y/n)")
+        if a =="y":
+            playGame()
+            
+        elif a=="n":
+            print("No? Well, ok then. Bye, " + myName + "!")    
+            break
+        
+        else:
+            print("Ummm.... Enter either y/n, you fool!")
+
+# Program:
+
+win_score = 0
+loose_score = 0 
+
+print("Hello! Welcome to my little game Guess my number! :) What's your name?")
+myName = input()
+            
 playGame()
 
-while True:
-    a = input("Continue?" "(y/n)")
-    if a =="y":
-        playGame()
-        
-    elif a=="n":
-        print("No? Well, ok then. Bye, " + myName + "!")    
-        break
-    
-    else:
-        print("Ummm.... Enter either y/n, you fool!")
+Ask_continue()
+
 
     
 
