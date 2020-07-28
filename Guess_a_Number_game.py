@@ -1,11 +1,13 @@
 import random
 import sys
 
+from Game_engine import drawWelcomeMessage
+from Game_engine import askDifficulty
+from Game_engine import drawRemaining
 from Game_engine import drawResultNotCorrect
 from Game_engine import drawWinningMessage
 from Game_engine import drawLoosingMessage
-from Game_engine import drawRemaining
-from Game_engine import DrawWelcomeMessage
+
 
 
 def playGame():
@@ -13,25 +15,8 @@ def playGame():
 
     global win_score
     global loose_score
-
-    print("Well," + my_name + ", which difficulty do you want? easy, normal or difficult?")
-    
-    while True:
-        difficulty_taken = input()
-
-        if difficulty_taken == "easy":
-            guesses_available = 10
-            break
-        if difficulty_taken == "normal":
-            guesses_available = 6
-            break
-        if difficulty_taken == "difficult":
-            guesses_available = 3
-            break
-        else:
-            print("Please write easy, normal or difficult correctly.")
-
-    print("You have chosen " + difficulty_taken + ". You will have", guesses_available ,"guesses.")
+   
+    guesses_available = askDifficulty(my_name)
 
     number = random.randint(1, 20)
     print("OK," + my_name + ", I am thinking of a number between 1 and 20.")
@@ -60,7 +45,6 @@ def playGame():
                 else:
                     print("You are so mean to me! :( I don't want to play with you anymore! Bye!") 
                     sys.exit()
-
 
         if guess == number:
             win_score = win_score + 1
@@ -92,7 +76,7 @@ def drawAskContinue(my_name):
 win_score = 0
 loose_score = 0 
 
-DrawWelcomeMessage()
+drawWelcomeMessage()
 my_name = input()
             
 playGame()
