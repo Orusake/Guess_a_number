@@ -7,6 +7,9 @@ from Game_engine import drawRemaining
 from Game_engine import drawResultNotCorrect
 from Game_engine import drawWinningMessage
 from Game_engine import drawLoosingMessage
+from Game_engine import drawLine
+from Game_engine import drawSadEmoji
+from Game_engine import drawHappyEmoji
 
 
 
@@ -54,16 +57,20 @@ def playGame():
         else:
             loose_score += 1            #instead of loose_score = loose_score + 1
             drawLoosingMessage(my_name, number, win_score, loose_score)
+            
 
 
 def drawAskContinue(my_name):
+    drawLine(20)
     while True:
         a = input("Continue?" "(y/n)")
         if a =="y":
+            drawHappyEmoji()
             playGame()
             
         elif a=="n":
-            print("No? Well, ok then. Bye, " + my_name + "!")    
+            drawSadEmoji()
+            print("Well, ok then. Bye, " + my_name + "!")    
             break
         
         else:
@@ -71,7 +78,7 @@ def drawAskContinue(my_name):
 
 
 
-# Program:
+# Program to play:
 
 win_score = 0
 loose_score = 0 
