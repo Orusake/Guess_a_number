@@ -1,16 +1,20 @@
 import random
 import sys
 
-# Functions
+from Game_engine import drawResultNotCorrect
+from Game_engine import drawWinningMessage
+from Game_engine import drawLoosingMessage
+from Game_engine import drawRemaining
+from Game_engine import DrawWelcomeMessage
 
 
 def playGame():
-    guessesTaken = 0
+    guesses_taken = 0
 
     global win_score
     global loose_score
 
-    print("Well," + myName + ", which difficulty do you want? easy, normal or difficult?")
+    print("Well," + my_name + ", which difficulty do you want? easy, normal or difficult?")
     
     while True:
         difficulty_taken = input()
@@ -27,38 +31,30 @@ def playGame():
         else:
             print("Please write easy, normal or difficult correctly.")
 
-
     print("You have chosen " + difficulty_taken + ". You will have", guesses_available ,"guesses.")
 
-    def remaining(guess):
-        print("Now you have", guesses_available - guessesTaken , "guesses remaining.")
-
     number = random.randint(1, 20)
-    print("OK," + myName + ", I am thinking of a number between 1 and 20.")
+    print("OK," + my_name + ", I am thinking of a number between 1 and 20.")
 
 
-    while guessesTaken < guesses_available: 
+    while guesses_taken < guesses_available: 
 
-        for guessesTaken in range(guesses_available):  #do this 6 times
+        for guesses_taken in range(guesses_available):  #do this 6 times
             print("Take a guess.")
 
             try: 
                 guess = int(input())
-                guessesTaken = guessesTaken + 1
+                guesses_taken = guesses_taken + 1
                 
-                if guess < number:
-                    print("Your guess is too low.")
+                drawResultNotCorrect(guess, number)
     
-                if guess > number:
-                    print("Your guess it too high.")
-    
-                remaining(guess)
+                drawRemaining(guesses_available, guesses_taken)
                 
                 if guess == number:
                     break
 
             except ValueError:
-                if guessesTaken < guesses_available - 1:
+                if guesses_taken < guesses_available - 1:
                    print("Don't try to fool me, you fool! Try again.")
                    continue
                 else:
@@ -66,54 +62,42 @@ def playGame():
                     sys.exit()
 
 
-
         if guess == number:
-            guessesTaken = str(guessesTaken)
-            print("Bravo, " + myName + "! You guessed my number in " + guessesTaken + " guesses!")
             win_score = win_score + 1
-            print("You win " + str(win_score) + " times." "You loose " + str(loose_score) + " times.")
-            break 
+            drawWinningMessage(my_name, guesses_taken, win_score, loose_score)
+            break
 
         else:
-        # if guess != number:
-            number = str(number)
-            print("How bad, "+ myName + ". The number I was thinking of was " + number +".")
             loose_score += 1            #instead of loose_score = loose_score + 1
-            # loose_score = str(loose_score)
-            print("You win " + str(win_score) + " times." "You loose " + str(loose_score) + " times.")   
+            drawLoosingMessage(my_name, number, win_score, loose_score)
 
-def Ask_continue():
+
+def drawAskContinue(my_name):
     while True:
         a = input("Continue?" "(y/n)")
         if a =="y":
             playGame()
             
         elif a=="n":
-            print("No? Well, ok then. Bye, " + myName + "!")    
+            print("No? Well, ok then. Bye, " + my_name + "!")    
             break
         
         else:
             print("Ummm.... Enter either y/n, you fool!")
+
+
 
 # Program:
 
 win_score = 0
 loose_score = 0 
 
-print("Hello! Welcome to my little game Guess my number! :) What's your name?")
-myName = input()
+DrawWelcomeMessage()
+my_name = input()
             
 playGame()
 
-Ask_continue()
+drawAskContinue(my_name)
 
 
     
-
-
-# score = {
-#        'H': {
-#                'wins' : 0,
-#                'losses': 0,
-#                'score': 0
-#                },
