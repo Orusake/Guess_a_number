@@ -1,7 +1,7 @@
 import random
 import sys
 
-from FileInputOutput import file_input_output
+from FileInputOutput import fileInputOutput
 
 from UserInput import askDifficulty
 
@@ -87,11 +87,18 @@ def drawAskContinue(my_name):
 win_score = 0
 loose_score = 0 
 
-file_input_output()
+fileInputOutput()
 
 drawWelcomeMessage()
 my_name = input()
 
+data = fileInputOutput()
+
+if my_name in data:
+    print("Welcome back, " + my_name + "! Nice to hear from you again!")
+else:
+    print("Hello, newbie!")
+    # f.append()
 
 playGame()
 

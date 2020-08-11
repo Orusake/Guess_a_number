@@ -1,7 +1,7 @@
 # FileInputOutput
 
 
-def file_input_output():
+def fileInputOutput():
     filename = "names.txt"
     data = "Hang, Thomy, Ellie, Joel"
 
@@ -15,6 +15,9 @@ def file_input_output():
     data = f_read.read()
     print("List of the names")
     print(data)
+
+    return data
+
 
 
 
