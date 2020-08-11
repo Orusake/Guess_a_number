@@ -4,7 +4,7 @@
 def fileInputOutput():
     my_name = input()
     filename = "names.txt"
-    data = "Leo"
+    data = "whatever - acts as placeholder"
 
     f_read = open(filename, "r")  # r = read
 
