@@ -89,29 +89,10 @@ loose_score = 0
 
 drawWelcomeMessage()
 
-my_name = input()
-
-# data = fileInputOutput() # if in separated file
+my_name = fileInputOutput() # if in separated file
 
 
-filename = "names.txt"
-data = "Leo"
 
-f_read = open(filename, "r")  # r = read
-
-data = f_read.read()
-print("List of the names which have been saved:")
-print(data)
-
-if my_name in data:
-    print("Welcome back, " + my_name + "! Nice to hear from you again!")
-else:
-    print("Hello, newbie!")
-    with open(filename, "w") as f:
-        f.write(data)
-        f.write(my_name + "\n")
-        f_read = open(filename, "r")
-        data = f_read.read()
 
 playGame()
 
