@@ -80,6 +80,21 @@ def drawAskContinue(my_name):
 
 # Program to play:
 
+filename = "name.txt"
+data = "Hang, Thomy, Ellie"
+
+f = open(filename, "w")  # w = write
+
+f.write(data + "\n")  # \n is a newline  \t is a tab
+f.close()
+
+f_read = open(filename, "r")  # r = read
+
+data = f_read.read()
+print("List of the names")
+print(data)
+
+
 win_score = 0
 loose_score = 0 
 
