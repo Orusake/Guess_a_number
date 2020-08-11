@@ -3,8 +3,8 @@
 
 def fileInputOutput():
     filename = "names.txt"
-    data = "Hang, Thomy, Ellie"
-
+    data = ""
+    
     f = open(filename, "w")  # w = write
 
     f.write(data + "\n")  # \n is a newline  \t is a tab
