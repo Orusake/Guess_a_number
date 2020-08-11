@@ -87,8 +87,6 @@ def drawAskContinue(my_name):
 win_score = 0
 loose_score = 0 
 
-fileInputOutput()
-
 drawWelcomeMessage()
 my_name = input()
 
@@ -98,7 +96,7 @@ if my_name in data:
     print("Welcome back, " + my_name + "! Nice to hear from you again!")
 else:
     print("Hello, newbie!")
-    # f.append()
+    # data.append(my_name)
 
 playGame()
 

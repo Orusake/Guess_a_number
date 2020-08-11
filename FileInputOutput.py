@@ -3,7 +3,7 @@
 
 def fileInputOutput():
     filename = "names.txt"
-    data = "Hang, Thomy, Ellie, Joel"
+    data = "Hang, Thomy, Ellie"
 
     f = open(filename, "w")  # w = write
 
@@ -13,7 +13,7 @@ def fileInputOutput():
     f_read = open(filename, "r")  # r = read
 
     data = f_read.read()
-    print("List of the names")
+    print("List of the names which have been saved")
     print(data)
 
     return data
