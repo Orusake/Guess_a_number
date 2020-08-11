@@ -1,10 +1,11 @@
 import random
 import sys
 
-# from FileInputOutput import file_input_output
+from FileInputOutput import file_input_output
+
+from UserInput import askDifficulty
 
 from GameEngine import drawWelcomeMessage
-from GameEngine import askDifficulty
 from GameEngine import drawRemaining
 from GameEngine import drawResultNotCorrect
 from GameEngine import drawWinningMessage
@@ -86,28 +87,11 @@ def drawAskContinue(my_name):
 win_score = 0
 loose_score = 0 
 
-filename = "UserInput.py"
-data = "Hang, Thomy, Ellie"
-
-f = open(filename, "w")  # w = write
-
-f.write(data + "\n")  # \n is a newline  \t is a tab
-f.close()
-
-f_read = open(filename, "r")  # r = read
-
-data = f_read.read()
-print("List of the names")
-print(data)
+file_input_output()
 
 drawWelcomeMessage()
-
 my_name = input()
 
-if my_name in data:
-    print("Welcome back, " + my_name + "! Nice to hear from you again!")
-else:
-    print("Hello, newbie!")
 
 playGame()
 
