@@ -100,7 +100,12 @@ loose_score = 0
 
 drawWelcomeMessage()
 my_name = input()
-            
+
+if my_name in data:
+    print("Welcome back, " + my_name + "! Nice to hear from you again!")
+else:
+    print("Hello, newbie!")
+
 playGame()
 
 drawAskContinue(my_name)

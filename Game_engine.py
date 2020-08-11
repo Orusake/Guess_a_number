@@ -20,7 +20,7 @@ def drawWelcomeMessage():
     print("Hello! Welcome to my little game Guess my number! :) What's your name?")
 
 def askDifficulty(my_name):
-    print("Well," + my_name + ", which difficulty do you want? easy, normal or difficult?")
+    print("Well, " + my_name + ", which difficulty do you want? easy, normal or difficult?")
 
     guesses_available = 0     # specificy this! start with a default value!
     difficulty_taken = "easy"   # then I need a difficulty_taken default! So I declare that I use these two values locally in this function.
