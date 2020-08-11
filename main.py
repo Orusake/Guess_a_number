@@ -92,8 +92,6 @@ drawWelcomeMessage()
 my_name = fileInputOutput() # if in separated file
 
 
-
-
 playGame()
 
 drawAskContinue(my_name)
