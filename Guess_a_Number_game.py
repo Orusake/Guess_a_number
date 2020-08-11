@@ -1,15 +1,17 @@
 import random
 import sys
 
-from Game_engine import drawWelcomeMessage
-from Game_engine import askDifficulty
-from Game_engine import drawRemaining
-from Game_engine import drawResultNotCorrect
-from Game_engine import drawWinningMessage
-from Game_engine import drawLoosingMessage
-from Game_engine import drawLine
-from Game_engine import drawSadEmoji
-from Game_engine import drawHappyEmoji
+# from FileInputOutput import file_input_output
+
+from GameEngine import drawWelcomeMessage
+from GameEngine import askDifficulty
+from GameEngine import drawRemaining
+from GameEngine import drawResultNotCorrect
+from GameEngine import drawWinningMessage
+from GameEngine import drawLoosingMessage
+from GameEngine import drawLine
+from GameEngine import drawSadEmoji
+from GameEngine import drawHappyEmoji
 
 
 
@@ -80,7 +82,11 @@ def drawAskContinue(my_name):
 
 # Program to play:
 
-filename = "name.txt"
+
+win_score = 0
+loose_score = 0 
+
+filename = "UserInput.py"
 data = "Hang, Thomy, Ellie"
 
 f = open(filename, "w")  # w = write
@@ -94,11 +100,8 @@ data = f_read.read()
 print("List of the names")
 print(data)
 
-
-win_score = 0
-loose_score = 0 
-
 drawWelcomeMessage()
+
 my_name = input()
 
 if my_name in data:
